@@ -1,0 +1,266 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0b1020;
+  color: #f4f4ff;
+}
+
+.app-header {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: radial-gradient(circle at top, #273c75, #0b1020);
+  border-bottom: 1px solid #1b2135;
+}
+
+.app-header h1 {
+  margin: 0 0 0.25rem;
+}
+
+.app-header p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.app-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #10152a;
+  border-bottom: 1px solid #1b2135;
+}
+
+.nav-btn {
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: #151b33;
+  color: #dcdcff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.nav-btn.active {
+  background: #4b7bec;
+  color: #fff;
+}
+
+.app-main {
+  padding: 1rem;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+}
+
+.page {
+  display: none;
+}
+
+.page.visible {
+  display: block;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #151b33;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  border: 1px solid #252b45;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.45rem;
+  border: 1px solid #313755;
+  background: #0b1020;
+  color: #f4f4ff;
+  font-size: 0.9rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-top: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  background: #4b7bec;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.3rem 0.4rem;
+  border-bottom: 1px solid #252b45;
+}
+
+.data-table th {
+  text-align: left;
+  font-weight: 600;
+}
+
+.mini-form {
+  margin-bottom: 0.6rem;
+}
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.plan-card {
+  background: #151b33;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  border: 1px solid #252b45;
+}
+
+.plan-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.plan-card label {
+  font-size: 0.8rem;
+}
+
+.plan-card textarea {
+  font-size: 0.8rem;
+}
+
+#resume-output {
+  margin-top: 0.8rem;
+  width: 100%;
+  background: #050814;
+  border: 1px solid #32395d;
+  border-radius: 0.8rem;
+}
+
+.essay-list {
+  font-size: 0.88rem;
+  padding-left: 1.2rem;
+}
+
+.essay-list li {
+  margin-bottom: 0.4rem;
+}
+
+#major-selector label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+}
+
+#major-suggestions {
+  margin-top: 0.6rem;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.note {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-bottom: 0.7rem;
+}
+
+.chances-result {
+  margin-top: 1rem;
+  min-height: 3rem;
+}
+
+.scholarship-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.scholarship-item {
+  margin-bottom: 0.7rem;
+  padding: 0.7rem;
+  border-radius: 0.7rem;
+  background: #141a31;
+  border: 1px solid #2a3153;
+}
+
+.sch-item-title {
+  font-weight: 600;
+}
+
+.sch-item-tagline {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.sch-item-meta {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin-top: 0.2rem;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 0.78rem;
+  border-top: 1px solid #1b2135;
+  background: #050814;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .app-main {
+    padding-bottom: 4rem;
+  }
+}

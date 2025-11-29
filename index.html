@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>College & Career Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>College & Career Planner</h1>
+    <p>Plan your activities, classes, and college journey without getting overwhelmed.</p>
+  </header>
+
+  <nav class="app-nav">
+    <button class="nav-btn active" data-target="dashboard">Dashboard</button>
+    <button class="nav-btn" data-target="activities">Activities</button>
+    <button class="nav-btn" data-target="four-year">4-Year Plan</button>
+    <button class="nav-btn" data-target="resume">Resume Builder</button>
+    <button class="nav-btn" data-target="essays-majors">Essays & Majors</button>
+    <button class="nav-btn" data-target="chances">College Chances</button>
+    <button class="nav-btn" data-target="scholarships">Scholarships</button>
+  </nav>
+
+  <main class="app-main">
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page visible">
+      <h2>Dashboard</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Profile</h3>
+          <form id="profile-form">
+            <label>
+              Name
+              <input type="text" id="profile-name" />
+            </label>
+            <label>
+              Current Grade
+              <select id="profile-grade">
+                <option value="">Select...</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+              </select>
+            </label>
+            <label>
+              GPA (unweighted, 0–4.0)
+              <input type="number" step="0.01" min="0" max="4" id="profile-gpa" />
+            </label>
+            <label>
+              Test Type
+              <select id="profile-test-type">
+                <option value="">None yet</option>
+                <option value="SAT">SAT</option>
+                <option value="ACT">ACT</option>
+              </select>
+            </label>
+            <label>
+              Test Score
+              <input type="number" id="profile-test-score" placeholder="e.g. 1400 or 32" />
+            </label>
+            <label>
+              Interests (comma separated)
+              <input type="text" id="profile-interests" placeholder="e.g. biology, music, coding" />
+            </label>
+            <button type="submit">Save Profile</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Quick Stats</h3>
+          <ul id="quick-stats">
+            <!-- Filled by JS -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section id="activities" class="page">
+      <h2>Activities & Achievements</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Volunteer Hours</h3>
+          <form class="mini-form" data-type="volunteer">
+            <label>
+              Organization
+              <input type="text" name="org" required />
+            </label>
+            <label>
+              Role / Task
+              <input type="text" name="role" required />
+            </label>
+            <label>
+              Hours
+              <input type="number" name="hours" min="0" required />
+            </label>
+            <label>
+              Date
+              <input type="date" name="date" />
+            </label>
+            <button type="submit">Add Volunteer Entry</button>
+          </form>
+          <table class="data-table" id="volunteer-table">
+            <thead>
+              <tr>
+                <th>Organization</th>
+                <th>Role</th>
+                <th>Hours</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Clubs</h3>
+          <form class="mini-form" data-type="clubs">
+            <label>
+              Club Name
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Position (optional)
+              <input type="text" name="position" placeholder="Member, President, etc." />
+            </label>
+            <label>
+              Years Involved
+              <input type="text" name="years" placeholder="e.g. 9–10" />
+            </label>
+            <button type="submit">Add Club</button>
+          </form>
+          <table class="data-table" id="clubs-table">
+            <thead>
+              <tr>
+                <th>Club</th>
+                <th>Position</th>
+                <th>Years</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Awards</h3>
+          <form class="mini-form" data-type="awards">
+            <label>
+              Award Name
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Level
+              <select name="level">
+                <option>School</option>
+                <option>District</option>
+                <option>State</option>
+                <option>National</option>
+                <option>International</option>
+              </select>
+            </label>
+            <label>
+              Year
+              <input type="number" name="year" placeholder="e.g. 2025" />
+            </label>
+            <button type="submit">Add Award</button>
+          </form>
+          <table class="data-table" id="awards-table">
+            <thead>
+              <tr>
+                <th>Award</th>
+                <th>Level</th>
+                <th>Year</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUR YEAR PLAN -->
+    <section id="four-year" class="page">
+      <h2>4-Year High School Plan</h2>
+      <p>Sketch out your classes and goals by year. It’s okay if this changes over time!</p>
+      <div class="plan-grid">
+        <!-- JS fills in the year cards -->
+      </div>
+    </section>
+
+    <!-- RESUME BUILDER -->
+    <section id="resume" class="page">
+      <h2>Resume Builder</h2>
+      <p>This pulls from your profile and activities. You can tweak the text and paste it into Google Docs or Word.</p>
+      <button id="generate-resume-btn">Generate Resume Text</button>
+      <textarea id="resume-output" rows="18" spellcheck="false"></textarea>
+    </section>
+
+    <!-- ESSAYS & MAJORS -->
+    <section id="essays-majors" class="page">
+      <h2>Essays & Majors</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Common Essay Prompts</h3>
+          <ul class="essay-list">
+            <li>Tell a story about a challenge you faced and how you grew from it.</li>
+            <li>Describe a time you took initiative or leadership in your community.</li>
+            <li>Talk about a topic, idea, or experience that you find so engaging it makes you lose track of time.</li>
+            <li>Describe an academic subject that inspires you and why.</li>
+          </ul>
+          <label>
+            Brainstorm Area
+            <textarea id="essay-brainstorm" rows="10"></textarea>
+          </label>
+        </div>
+
+        <div class="card">
+          <h3>Major Selector</h3>
+          <p>Pick your interests and we’ll suggest some majors to explore.</p>
+          <div id="major-selector">
+            <label><input type="checkbox" value="STEM" /> STEM / Math / Coding</label>
+            <label><input type="checkbox" value="Arts" /> Arts / Music / Design</label>
+            <label><input type="checkbox" value="Business" /> Business / Entrepreneurship</label>
+            <label><input type="checkbox" value="Social" /> Social Sciences / History</label>
+            <label><input type="checkbox" value="Health" /> Health / Medicine</label>
+            <label><input type="checkbox" value="Environment" /> Environment / Sustainability</label>
+          </div>
+          <button id="suggest-majors-btn">Suggest Majors</button>
+          <ul id="major-suggestions"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLEGE CHANCES -->
+    <section id="chances" class="page">
+      <h2>College Chances (Very Rough Estimate)</h2>
+      <p class="note">
+        This is NOT an official prediction. It’s just a rough, local calculator to help you think about your profile.
+      </p>
+      <form id="chances-form" class="card">
+        <label>
+          Target College Selectivity
+          <select id="chances-selectivity">
+            <option value="reach">Highly Selective / Reach</option>
+            <option value="match">Match / Mid-Selective</option>
+            <option value="safety">Safety / Less Selective</option>
+          </select>
+        </label>
+        <label>
+          GPA (0–4.0)
+          <input type="number" step="0.01" min="0" max="4" id="chances-gpa" />
+        </label>
+        <label>
+          Test Score (SAT out of 1600 or ACT x3, e.g. 32 → 96)
+          <input type="number" id="chances-test" />
+        </label>
+        <label>
+          Number of Honors/AP/IB Classes
+          <input type="number" min="0" id="chances-rigor" />
+        </label>
+        <label>
+          Leadership Roles (clubs, sports, jobs)
+          <input type="number" min="0" id="chances-leadership" />
+        </label>
+        <label>
+          Total Volunteer Hours
+          <input type="number" min="0" id="chances-volunteer" />
+        </label>
+        <button type="submit">Estimate Chances</button>
+      </form>
+      <div id="chances-result" class="card chances-result">
+        <!-- Filled by JS -->
+      </div>
+    </section>
+
+    <!-- SCHOLARSHIPS -->
+    <section id="scholarships" class="page">
+      <h2>Scholarship Alerts</h2>
+      <p>
+        Based on your GPA and interests, we’ll highlight sample scholarships you might be a good fit for.
+        (These are example entries—you’d still need to search the real web!)
+      </p>
+      <button id="refresh-scholarships-btn">Refresh Matches</button>
+      <ul id="scholarship-list" class="scholarship-list"></ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>All data is stored locally in your browser. You can clear it anytime with your browser’s site data tools.</small>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
